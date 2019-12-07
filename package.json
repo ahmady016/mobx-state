@@ -11,16 +11,21 @@
     "@material-ui/icons": "^4.5.1",
     "styled-components": "^4.4.1",
     "clsx": "^1.0.4",
+    "mobx": "^5.15.0",
+    "mobx-react-lite": "^1.5.1",
     "formik": "^2.0.6",
     "yup": "^0.27.0",
     "moment": "^2.24.0",
     "shortid": "^2.2.15"
   },
   "scripts": {
-    "start": "set PORT=2022 && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "set PORT=2022 && react-app-rewired start",
+    "build": "react-app-rewired build",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "customize-cra": "^0.9.1",
+    "react-app-rewired": "^2.1.5"
   },
   "eslintConfig": {
     "extends": "react-app"
