@@ -1,10 +1,14 @@
 import { createContext } from 'react'
 import { observable } from 'mobx'
+import { create, persist } from 'mobx-persist'
+
 import shortid from 'shortid'
 
 class Todos {
 
-  @observable todos = [
+  @persist('list')
+  @observable
+  todos = [
     { id: shortid.generate(), text: 'Buy eggs', completed: true },
     { id: shortid.generate(), text: 'Write a post', completed: false }
   ]
@@ -47,4 +51,9 @@ class Todos {
   }
 }
 
-export default createContext(new Todos())
+const todos = new Todos()
+
+const hydrate = create({ storage: localStorage, jsonify: true })
+hydrate('TODOS', todos)
+
+export default createContext(todos)
