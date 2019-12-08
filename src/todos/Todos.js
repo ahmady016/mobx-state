@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
 
-import Todo, { formatDate } from '../store/Todo'
+import Todo, { formatDate } from './_Todos'
 
 import Chip from '@material-ui/core/Chip'
 import Paper from '@material-ui/core/Paper'

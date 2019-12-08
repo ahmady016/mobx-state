@@ -2,8 +2,12 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 /* #region default styles */
-body {
+html {
   background-color: #ccc;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
