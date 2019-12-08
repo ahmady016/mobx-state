@@ -10,6 +10,26 @@ import Tab from '@material-ui/core/Tab'
 
 function AppHeader ({ history }) {
   const [tabIndex, setTabIndex] = React.useState(0)
+
+  React.useEffect(
+    () => {
+      switch (tabIndex) {
+        case 0:
+          history.push('/todos')
+          break;
+        case 1:
+          history.push('/books')
+          break;
+        case 2:
+          history.push('/movies')
+          break;
+        default:
+          break;
+      }
+    },
+    [tabIndex, history]
+  )
+
   return (
     <AppBar position="fixed">
       <Toolbar className='flex-between'>

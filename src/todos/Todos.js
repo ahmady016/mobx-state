@@ -101,7 +101,7 @@ const TodoItemForm = observer(({ editMode, todo = {}, setEditMode = v => v }) =>
     setText('')
   }
   return (
-    <form className='my-05 flex-center' onSubmit={handleSubmit}>
+    <form className='mb-05 flex-center' onSubmit={handleSubmit}>
       <FormControl className={editMode ? 'w-75' : 'w-100'}>
         <InputLabel htmlFor="my-input">{editMode ? 'Change Todo Text' : 'Add Todo Text'}</InputLabel>
         <Input id='text' name='text' value={text} onChange={e => setText(e.target.value)} />

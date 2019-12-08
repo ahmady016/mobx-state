@@ -6,6 +6,8 @@ import shortid from 'shortid'
 
 import AppHeader from './AppHeader'
 import Todos from './todos/Todos'
+import Books from './books/Books'
+import Movies from './movies/Movies'
 
 const AnimationWrapper = posed.div({
   enter: {
@@ -21,22 +23,24 @@ const AnimationWrapper = posed.div({
     staggerChildren: 20,
     staggerDirection: -1
   }
-});
+})
 
 function App ({ location, history }) {
   return (
     <>
       <AppHeader history={history} />
-      <div className='container mt-1'>
+      <main className='container mt-45'>
         <PoseGroup>
             <AnimationWrapper key={shortid.generate()}>
               <Switch location={location}>
                 <Route path="/todos" component={Todos} />
+                <Route path="/books" component={Books} />
+                <Route path="/movies" component={Movies} />
                 <Redirect to="/todos" />
               </Switch>
             </AnimationWrapper>
           </PoseGroup>
-      </div>
+      </main>
     </>
   )
 }
