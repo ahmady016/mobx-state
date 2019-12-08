@@ -3,14 +3,20 @@ import { observable } from 'mobx'
 import { create, persist } from 'mobx-persist'
 
 import shortid from 'shortid'
+import moment from 'moment'
+
+const tody = new Date()
+export const formatDate = (dateString) => {
+  return moment(dateString).format('DD/MM/YYYY hh:mm:ss a')
+}
 
 class Todos {
 
   @persist('list')
   @observable
   todos = [
-    { id: shortid.generate(), text: 'Buy eggs', completed: true },
-    { id: shortid.generate(), text: 'Write a post', completed: false }
+    { id: shortid.generate(), text: 'Buy eggs and cheese', completed: false, createdAt: tody, modifiedAt: tody },
+    { id: shortid.generate(), text: 'Write a post', completed: false, createdAt: tody, modifiedAt: tody }
   ]
 
   get remaining() {
@@ -31,17 +37,22 @@ class Todos {
       todo.completed = !todo.completed
   }
 
-  add = newTodo => {
+  add = todoText => {
     this.todos.push({
       id: shortid.generate(),
-      ...newTodo
+      text: todoText,
+      completed: false,
+      createdAt: new Date(),
+      modifiedAt: new Date(),
     })
   }
 
   update = updatedTodo => {
     let index = this.todos.findIndex(todo => todo.id === updatedTodo.id)
-    if(index >= 0)
+    if(index >= 0) {
+      updatedTodo.modifiedAt = new Date()
       this.todos[index] = updatedTodo
+    }
   }
 
   remove = id => {
