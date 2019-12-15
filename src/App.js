@@ -9,6 +9,8 @@ import Todos from './todos/Todos'
 import Books from './books/Books'
 import Movies from './movies/Movies'
 
+import Container from '@material-ui/core/Container'
+
 const AnimationWrapper = posed.div({
   enter: {
     opacity: 1,
@@ -29,7 +31,7 @@ function App ({ location, history }) {
   return (
     <>
       <AppHeader history={history} />
-      <main className='container mt-45'>
+      <Container maxWidth='md' className='mt-45'>
         <PoseGroup>
             <AnimationWrapper key={shortid.generate()}>
               <Switch location={location}>
@@ -40,7 +42,7 @@ function App ({ location, history }) {
               </Switch>
             </AnimationWrapper>
           </PoseGroup>
-      </main>
+      </Container>
     </>
   )
 }

@@ -125,11 +125,11 @@ const TodoItem = observer(({ todo }) => {
 function Todos() {
   const { todos } = React.useContext(Todo)
   return (
-    <div className='w-50 m-auto'>
+    <>
       <TodoItemForm editMode={false} />
       <TodosHeader />
       <List>{todos.map( todo => <TodoItem key={todo.id} todo={todo} /> )}</List>
-    </div>
+    </>
   )
 }
 
