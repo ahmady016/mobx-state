@@ -17,7 +17,7 @@
     "mobx-persist": "^0.4.1",
     "formik": "^2.0.6",
     "yup": "^0.27.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "shortid": "^2.2.15"
   },
   "scripts": {
